@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_purple"
+    android:background="@color/light_blue"
     tools:context=".LandingActivity">
 
     <TextView
@@ -15,6 +15,7 @@
         android:text="Welcome!"
         android:textSize="24sp"
         android:textColor="@color/black"
+        android:fontFamily="@font/poppinsbold"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

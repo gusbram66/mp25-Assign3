@@ -15,8 +15,12 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Terima data dari RegisterActivity
         registeredUser = intent.getParcelableExtra("REGISTERED_USER")
+
+        //agar autofill usernamenya yakk bosku
+        intent.getStringExtra("USERNAME")?.let { username ->
+            binding.etUsername.setText(username)
+        }
 
         binding.btnLogin.setOnClickListener {
             if (validateInputs()) {

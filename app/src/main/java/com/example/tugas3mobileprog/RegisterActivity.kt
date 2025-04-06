@@ -16,26 +16,30 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             if (validateInputs()) {
                 val user = User(
-                    username = binding.etName.text.toString(),
+                    username = binding.etUsername.text.toString(),
                     password = binding.etPassword.text.toString()
                 )
 
-                // Kirim data user ke LoginActivity via Intent
+                // Kirim data user ke LoginActivity pake Intent
                 val intent = Intent(this, LoginActivity::class.java).apply {
                     putExtra("REGISTERED_USER", user) // Gunakan Parcelable
+                    putExtra("USERNAME", binding.etUsername.text.toString())
                 }
                 startActivity(intent)
                 finish()
             }
         }
+        binding.tvLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 
     private fun validateInputs(): Boolean {
-        val name = binding.etName.text.toString()
+        val name = binding.etUsername.text.toString()
         val password = binding.etPassword.text.toString()
 
         if (name.isEmpty()) {
-            binding.etName.error = "Name is required"
+            binding.etUsername.error = "Name is required"
             return false
         }
         if (password.isEmpty() || password.length < 6) {
